@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday Hariharan 🦇</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════
+   THEME: Deep Navy + Electric Cyan
+   Accent  : #00d4ff
+   BG      : #080c14
+═══════════════════════════ */
+:root{
+  --accent:#00d4ff;
+  --accent2:#7eeeff;
+  --bg:#080c14;
+  --card:#0e1520;
+  --card2:#14203a;
+  --text:#e8f4ff;
+  --muted:#3a6070;
+  --title-first:#00d4ff;
+  --title-rest:#ffffff;
+  --glow:0 0 8px rgba(0,212,255,.35),0 0 20px rgba(0,212,255,.18);
+  --glow-sm:0 0 5px rgba(0,212,255,.3),0 0 10px rgba(0,212,255,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Rajdhani',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 110%,rgba(0,212,255,.05) 0%,transparent 55%),
+  repeating-linear-gradient(90deg,transparent,transparent 120px,rgba(0,212,255,.008) 120px,rgba(0,212,255,.008) 121px),
+  repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(0,212,255,.008) 80px,rgba(0,212,255,.008) 81px);}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 35%,rgba(0,0,0,.8) 100%);}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;}
+.raindrop{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,rgba(0,212,255,.15));animation:rain var(--d) infinite var(--dl) linear;opacity:0;}
+@keyframes rain{0%{opacity:0;transform:translateY(-40px)}10%{opacity:1}90%{opacity:.4}100%{opacity:0;transform:translateY(100vh)}}
+.spark{position:absolute;font-size:var(--fs,8px);color:var(--accent);animation:sparkle var(--d) infinite var(--dl) ease-in-out;opacity:0;}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}40%{opacity:.8;transform:scale(1)}80%{opacity:.2}}
+
+.page{display:none;min-height:100vh;position:relative;z-index:2;}
+.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+
+/* ══════════ PAGE 1 ══════════ */
+#page1{padding:36px 20px 52px;}
+
+.hb-top{font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,2.5vw,1.4rem);letter-spacing:12px;color:var(--muted);text-align:center;margin-bottom:8px;}
+
+/* BAT LOGO — glow very reduced */
+.bat-logo-wrap{text-align:center;margin-bottom:2px;position:relative;display:inline-block;}
+.bat-logo-wrap::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(0,212,255,.05) 0%,transparent 70%);border-radius:50%;animation:batsignal 4s ease-in-out infinite;}
+@keyframes batsignal{0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)}50%{opacity:.55;transform:translate(-50%,-50%) scale(1.06)}}
+.bat-svg{width:clamp(80px,13vw,120px);height:auto;filter:drop-shadow(0 0 3px rgba(0,212,255,.35));animation:batpulse 4s ease-in-out infinite;}
+@keyframes batpulse{0%,100%{filter:drop-shadow(0 0 2px rgba(0,212,255,.25))}50%{filter:drop-shadow(0 0 5px rgba(0,212,255,.45))}}
+
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,5rem);color:var(--accent);text-align:center;letter-spacing:8px;text-shadow:none;line-height:1;margin-bottom:4px;}
+.hero-sub{font-family:'Oswald',sans-serif;font-size:clamp(.75rem,1.6vw,1rem);letter-spacing:6px;color:var(--muted);text-align:center;text-transform:uppercase;margin-bottom:28px;}
+.bat-rule{width:220px;height:1px;margin:0 auto 28px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+
+/* ══════════ NAME BOX GRID ══════════ */
+:root{--box-size:200px;--box-gap:14px;}
+
+.name-rows-wrap{display:flex;flex-direction:column;align-items:center;gap:var(--box-gap);width:100%;margin-bottom:44px;}
+.name-row1,.name-row2{display:flex;flex-wrap:nowrap;justify-content:center;gap:var(--box-gap);}
+
+.name-box{
+  width:var(--box-size);height:var(--box-size);flex-shrink:0;
+  background:var(--card);border:1px solid rgba(0,212,255,.14);border-radius:10px;
+  cursor:default;position:relative;overflow:hidden;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:12px 10px;text-align:center;gap:6px;
+}
+.name-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:scaleX(0);transition:transform .35s;}
+.name-box::after{content:'';position:absolute;bottom:-1px;right:-1px;width:12px;height:12px;border-bottom:1.5px solid rgba(0,212,255,.18);border-right:1.5px solid rgba(0,212,255,.18);transition:border-color .3s;}
+.name-box:hover::before{transform:scaleX(1);}
+.name-box:hover::after{border-color:var(--accent);}
+.name-box:hover{transform:translateY(-7px) scale(1.03);border-color:rgba(0,212,255,.38);box-shadow:0 16px 34px rgba(0,0,0,.7);background:var(--card2);}
+
+
+
+/* ICON — centered */
+.box-icon{font-size:1.6rem;display:block;line-height:1;animation:fi 4s ease-in-out infinite;animation-delay:calc(var(--bi,0)*-.55s);flex-shrink:0;}
+@keyframes fi{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+/* TRAIT — first letter cyan, rest white */
+.box-trait{font-family:'Oswald',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;line-height:1.15;flex-shrink:0;}
+.box-trait .tl{color:var(--title-first);}
+.box-trait .tr{color:var(--title-rest);}
+
+/* DESC — full text visible */
+.box-desc{font-family:'Rajdhani',sans-serif;font-size:.68rem;font-weight:600;color:rgba(232,244,255,.5);line-height:1.3;padding:0 6px;}
+
+/* Responsive */
+@media(max-width:1080px){:root{--box-size:175px;--box-gap:12px;}}
+@media(max-width:920px){
+  :root{--box-size:145px;--box-gap:10px;}
+  .box-letter{font-size:3rem;}.box-icon{font-size:1.35rem;}.box-trait{font-size:.74rem;}.box-desc{font-size:.62rem;}
+}
+@media(max-width:730px){
+  :root{--box-size:118px;--box-gap:8px;}
+  .box-letter{font-size:2.4rem;}.box-icon{font-size:1.1rem;}.box-trait{font-size:.63rem;letter-spacing:.5px;}.box-desc{font-size:.57rem;}
+}
+@media(max-width:530px){
+  :root{--box-size:88px;--box-gap:6px;}
+  .box-letter{font-size:1.9rem;}.box-icon{font-size:.9rem;margin-bottom:3px;}.box-trait{font-size:.52rem;}.box-desc{display:none;}
+}
+
+/* WISH BUTTON */
+.wbtn{position:relative;display:inline-flex;align-items:center;gap:12px;background:transparent;color:var(--accent);font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:5px;padding:18px 52px;border:1.5px solid var(--accent);border-radius:3px;cursor:pointer;text-transform:uppercase;transition:all .35s;overflow:hidden;}
+.wbtn::before{content:'';position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s;z-index:0;}
+.wbtn>span{position:relative;z-index:1;}
+.wbtn:hover::before{transform:scaleX(1);}
+.wbtn:hover{color:var(--bg);transform:translateY(-3px);}
+.pin{position:absolute;width:6px;height:6px;background:var(--accent);border-radius:50%;}
+.pin.tl{top:5px;left:5px}.pin.tr{top:5px;right:5px}.pin.bl{bottom:5px;left:5px}.pin.br{bottom:5px;right:5px}
+
+/* ══════════ PAGE 2 ══════════ */
+#page2{padding:48px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.04),transparent 55%);}
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:999;}
+.confetto{position:absolute;top:-20px;border-radius:1px;animation:cfall linear forwards;}
+@keyframes cfall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.whead{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2.6rem);color:var(--accent);text-align:center;letter-spacing:5px;margin-bottom:6px;}
+.wsub{font-family:'Oswald',sans-serif;letter-spacing:6px;color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:32px;text-transform:uppercase;}
+.wcard{max-width:700px;width:100%;background:var(--card);border:1px solid rgba(0,212,255,.14);border-radius:4px;padding:40px 44px;margin-bottom:40px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.7);}
+.wcard::before,.wcard::after{content:'';position:absolute;width:22px;height:22px;border-style:solid;border-color:var(--accent);}
+.wcard::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
+.wcard::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+.wcard-tl{position:absolute;bottom:-1px;left:-1px;width:22px;height:22px;border-bottom:2px solid rgba(0,212,255,.3);border-left:2px solid rgba(0,212,255,.3);}
+.wcard-br{position:absolute;top:-1px;right:-1px;width:22px;height:22px;border-top:2px solid rgba(0,212,255,.3);border-right:2px solid rgba(0,212,255,.3);}
+.wcard p{font-family:'Rajdhani',sans-serif;font-size:clamp(1.05rem,2.5vw,1.25rem);font-weight:500;line-height:1.9;color:rgba(232,244,255,.78);}
+.wcard strong{color:var(--accent);font-weight:700;}
+.wcard .sig{margin-top:22px;color:rgba(0,212,255,.5);font-family:'Oswald',sans-serif;font-size:.75rem;letter-spacing:3px;text-align:right;}
+.gbtn{display:inline-flex;align-items:center;gap:12px;background:transparent;color:var(--accent);font-family:'Oswald',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:4px;padding:16px 42px;border:1.5px solid var(--accent);border-radius:3px;cursor:pointer;text-transform:uppercase;transition:all .3s;}
+.gbtn:hover{background:var(--accent);color:var(--bg);transform:translateY(-3px);}
+
+/* ══════════ PAGE 3 ══════════ */
+#page3{padding:20px;align-items:flex-start;justify-content:flex-start;}
+.ghead{width:100%;max-width:980px;margin:0 auto 22px;text-align:center;padding-top:22px;}
+.ghead h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3.5vw,2.2rem);color:var(--accent);letter-spacing:5px;margin-bottom:5px;}
+.ghead p{color:var(--muted);font-size:.82rem;letter-spacing:2px;font-family:'Oswald',sans-serif;}
+.gift-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:12px;max-width:980px;width:100%;margin:0 auto 28px;padding:0 4px;}
+.gift-box{background:var(--card);border:1px solid rgba(0,212,255,.1);border-radius:10px;padding:18px 10px 14px;text-align:center;cursor:pointer;position:relative;transition:all .3s cubic-bezier(.34,1.56,.64,1);min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;}
+.gift-box:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(0,212,255,.32);box-shadow:0 12px 24px rgba(0,0,0,.5);}
+.gift-box.opened{border-color:rgba(0,212,255,.22);background:rgba(0,212,255,.03);}
+.gift-box.locked{background:#09111a;border-color:rgba(0,212,255,.14);}
+.gift-box.locked:hover{border-color:rgba(0,212,255,.42);}
+.gift-box.special{border-color:rgba(0,212,255,.28);background:rgba(0,212,255,.03);}
+.gift-box.special:hover{border-color:rgba(0,212,255,.55);}
+.gift-box.special::after{content:'';position:absolute;inset:-3px;border-radius:13px;border:1.5px solid var(--accent);animation:specpulse 2.2s infinite;}
+@keyframes specpulse{0%,100%{opacity:0;transform:scale(1)}50%{opacity:.38;transform:scale(1.02)}}
+.gift-emoji{font-size:2rem;display:block;animation:fi 4s ease-in-out infinite;animation-delay:calc(var(--gi,0)*-.4s);}
+.gift-num-badge{font-family:'Oswald',sans-serif;font-size:.6rem;color:var(--muted);letter-spacing:1px;font-weight:600;}
+.gift-box.locked .gift-emoji{filter:grayscale(1) opacity(.28);}
+.lock-icon{font-size:.9rem;position:absolute;top:6px;right:8px;}
+.opened-check{font-size:.85rem;position:absolute;top:5px;right:7px;color:var(--accent);}
+.gift-box.opened .gift-emoji{filter:brightness(.42);}
+.progress-bar{width:100%;max-width:980px;margin:0 auto;background:var(--card);border-radius:3px;height:4px;overflow:hidden;margin-bottom:16px;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .5s;}
+.progress-label{text-align:right;font-family:'Oswald',sans-serif;font-size:.6rem;color:var(--muted);letter-spacing:2px;max-width:980px;width:100%;margin:0 auto 5px;}
+
+/* MODALS */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.active{display:flex;}
+.modal{background:var(--card);border:1px solid rgba(0,212,255,.17);border-radius:8px;padding:34px;max-width:520px;width:100%;position:relative;box-shadow:0 28px 70px rgba(0,0,0,.8);animation:mIn .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes mIn{from{opacity:0;transform:scale(.82) translateY(28px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal::before,.modal::after{content:'';position:absolute;width:18px;height:18px;border-style:solid;}
+.modal::before{top:-1px;left:-1px;border-width:2px 0 0 2px;border-color:var(--accent);}
+.modal::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-color:var(--accent);}
+.modal-close{position:absolute;top:11px;right:13px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:1.15rem;transition:color .2s;}
+.modal-close:hover{color:var(--accent);}
+.q-gift-icon{font-size:3.8rem;text-align:center;display:block;margin-bottom:9px;animation:fi 3s ease-in-out infinite;}
+.q-title{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:4px;color:var(--accent);text-transform:uppercase;text-align:center;margin-bottom:4px;}
+.q-question{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);text-align:center;line-height:1.5;margin-bottom:18px;}
+.q-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px;}
+.q-opt{background:var(--card2);border:1px solid rgba(0,212,255,.11);border-radius:6px;padding:12px 13px;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:600;color:var(--text);cursor:pointer;transition:all .25s;text-align:center;}
+.q-opt:hover{border-color:var(--accent);color:var(--accent);}
+.q-opt.correct{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,.07);}
+.q-opt.wrong{border-color:#ff4444;color:#ff4444;background:rgba(255,68,68,.07);}
+.q-feedback{text-align:center;font-size:.95rem;font-weight:600;min-height:26px;margin-bottom:11px;}
+.lock-unlock-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--bg);font-family:'Oswald',sans-serif;font-size:.76rem;letter-spacing:2px;padding:13px 30px;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;transition:all .3s;margin:0 auto;font-weight:700;}
+.lock-unlock-btn:hover{transform:translateY(-2px);}
+.gr-tag{font-family:'Oswald',sans-serif;font-size:.58rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:5px;}
+.gr-icon{font-size:5rem;text-align:center;display:block;margin-bottom:4px;animation:fi 3s ease-in-out infinite;}
+.gr-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.3rem,4vw,2rem);color:var(--accent);text-align:center;letter-spacing:3px;margin-bottom:12px;}
+.gr-divider{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:0 auto 12px;}
+.gr-loc-lbl{font-family:'Oswald',sans-serif;font-size:.58rem;letter-spacing:4px;color:rgba(0,212,255,.52);text-transform:uppercase;text-align:center;margin-bottom:7px;}
+.gr-loc{background:rgba(0,212,255,.04);border:1px dashed rgba(0,212,255,.2);border-radius:6px;padding:13px 20px;font-size:.95rem;color:var(--accent2);letter-spacing:.3px;font-weight:600;line-height:1.5;text-align:center;}
+.lock-modal-icon{font-size:3.8rem;text-align:center;display:block;margin-bottom:9px;}
+.lock-modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;color:var(--accent);text-align:center;letter-spacing:3px;margin-bottom:9px;}
+.lock-modal-msg{font-size:1rem;color:rgba(232,244,255,.68);text-align:center;line-height:1.7;margin-bottom:18px;font-weight:500;}
+.spec-aura{position:absolute;inset:-10px;border-radius:16px;border:1.5px solid var(--accent);animation:specpulse 1.8s infinite;pointer-events:none;}
+.spec-tag{font-family:'Oswald',sans-serif;font-size:.58rem;letter-spacing:5px;color:var(--accent);text-transform:uppercase;text-align:center;margin-bottom:5px;}
+.spec-icon{font-size:5rem;text-align:center;display:block;margin-bottom:4px;animation:fi 3s ease-in-out infinite;}
+.spec-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.3rem,4vw,2rem);color:var(--accent);text-align:center;letter-spacing:3px;margin-bottom:12px;}
+.spec-loc{background:rgba(0,212,255,.05);border:1px dashed rgba(0,212,255,.22);border-radius:6px;padding:13px 20px;font-size:.95rem;color:var(--accent2);letter-spacing:.3px;font-weight:600;line-height:1.5;text-align:center;}
+.backbtn{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:2px;padding:9px 20px;border:1px solid rgba(0,212,255,.12);border-radius:3px;cursor:pointer;transition:all .25s;text-transform:uppercase;margin-top:10px;}
+.backbtn:hover{color:var(--accent);border-color:rgba(0,212,255,.38);}
+@media(max-width:560px){.gift-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;}.q-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<!-- ════ PAGE 1 ════ -->
+<div id="page1" class="page active">
+  <p class="hb-top">✦ &nbsp; HAPPY BIRTHDAY &nbsp; ✦</p>
+
+  <div class="bat-logo-wrap">
+    <svg class="bat-svg" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#00d4ff" d="M100 20 C100 20 90 10 70 14 C50 18 38 10 20 18 C10 22 4 32 8 40 C12 36 22 34 28 38 C18 42 12 52 16 62 C22 56 34 52 42 56 C50 60 56 70 56 70 L72 58 C80 66 88 72 100 72 C112 72 120 66 128 58 L144 70 C144 70 150 60 158 56 C166 52 178 56 184 62 C188 52 182 42 172 38 C178 34 188 36 192 40 C196 32 190 22 180 18 C162 10 150 18 130 14 C110 10 100 20 100 20Z"/>
+    </svg>
+  </div>
+
+  <h1 class="hero-title">HARIHARAN</h1>
+  <p class="hero-sub">— born to be extraordinary —</p>
+  <div class="bat-rule"></div>
+
+  <div class="name-rows-wrap">
+
+    <!-- ROW 1: H A R I -->
+    <div class="name-row1">
+      <div class="name-box" style="--bi:0">
+        <span class="box-icon">🤝</span>
+        <div class="box-trait"><span class="tl">H</span><span class="tr">elpful Soul</span></div>
+        <div class="box-desc">First to offer a hand, always there before you ask</div>
+      </div>
+      <div class="name-box" style="--bi:1">
+        <span class="box-icon">🎨</span>
+        <div class="box-trait"><span class="tl">A</span><span class="tr">rtful Designer</span></div>
+        <div class="box-desc">Turns every blank screen into something beautiful</div>
+      </div>
+      <div class="name-box" style="--bi:2">
+        <span class="box-icon">🏍️</span>
+        <div class="box-trait"><span class="tl">R</span><span class="tr">oad Rider</span></div>
+        <div class="box-desc">Born for open roads — engine roars & pure freedom</div>
+      </div>
+      <div class="name-box" style="--bi:3">
+        <span class="box-icon">💻</span>
+        <div class="box-trait"><span class="tl">I</span><span class="tr">nnovative Dev</span></div>
+        <div class="box-desc">Builds ideas into reality — code is his superpower</div>
+      </div>
+    </div>
+
+    <!-- ROW 2: H A R A N -->
+    <div class="name-row2">
+      <div class="name-box" style="--bi:4">
+        <span class="box-icon">🏋️</span>
+        <div class="box-trait"><span class="tl">H</span><span class="tr">ardcore Gym</span></div>
+        <div class="box-desc">Lifts heavy, trains harder — discipline every day</div>
+      </div>
+      <div class="name-box" style="--bi:5">
+        <span class="box-icon">☕</span>
+        <div class="box-trait"><span class="tl">A</span><span class="tr">ddicted Coffee</span></div>
+        <div class="box-desc">No morning starts without that perfect sacred cup</div>
+      </div>
+      <div class="name-box" style="--bi:6">
+        <span class="box-icon">📱</span>
+        <div class="box-trait"><span class="tl">R</span><span class="tr">adical Gadgets</span></div>
+        <div class="box-desc">First to unbox every drop — sharpest tech around</div>
+      </div>
+      <div class="name-box" style="--bi:7">
+        <span class="box-icon">🍔</span>
+        <div class="box-trait"><span class="tl">A</span><span class="tr">ppetite King</span></div>
+        <div class="box-desc">Burger & briyani — every bite must be legendary</div>
+      </div>
+      <div class="name-box" style="--bi:8">
+        <span class="box-icon">🦉</span>
+        <div class="box-trait"><span class="tl">N</span><span class="tr">ight Owl</span></div>
+        <div class="box-desc">Late nights, live code & midnight rides after dark</div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="wbtn" onclick="openWishes()">
+    <div class="pin tl"></div><div class="pin tr"></div><div class="pin bl"></div><div class="pin br"></div>
+    <span>🎁 &nbsp; OPEN YOUR BIRTHDAY WISHES</span>
+  </button>
+</div>
+
+<!-- ════ PAGE 2 ════ -->
+<div id="page2" class="page">
+  <div class="confetti-wrap" id="confettiWrap"></div>
+  <h2 class="whead">✦ BIRTHDAY WISHES ✦</h2>
+  <div class="wcard">
+    <div class="wcard-tl"></div><div class="wcard-br"></div>
+    <p style="text-align:center;">
+      <strong>Cheers to 25 successful years! 🎂</strong><br><br>
+      In these 25 years, you would have experienced a lot — happiness, sadness, achievements, anger, health issues, struggles, and good moments too.<br><br>
+      From now on, I just pray that your life is filled <strong>more with happiness and achievements</strong> than sadness. I hope every moment after this brings you only happiness.<br><br>
+      At least from this point, try to <strong>let go of anger and negative thoughts</strong> — and see how beautifully you can take your life forward as a new and better person. 🌟
+    </p>
+    <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.25),transparent);margin:28px 0;"></div>
+    <p>
+      Today we celebrate <strong>HARIHARAN</strong> — the man who codes by day, designs by heart, rides by soul, and hits the gym before most people wake up. 🔥<br><br>
+      You're the guy who knows every gadget before it drops, builds things others only dream about, and still finds time to be the most <strong>helpful person in the room</strong>. A developer, a designer, a techie — all rolled into one unstoppable force.<br><br>
+      You live for the <strong>open road on your bike</strong>, the roar of the crowd on the pitch, and the simple joy of a perfect cup of coffee, a loaded burger, or a steaming plate of briyani. 🍛🍔☕<br><br>
+      May this birthday bring you the fastest internet, the smoothest rides, every gadget your heart desires, and PRs at the gym. You are one of a kind, <strong>irreplaceable, and deeply loved.</strong><br><br>
+      <strong>❤️ Happy Birthday, Hariharan. 🦇🎂</strong>
+    </p>
+
+
+  </div>
+  <button class="gbtn" onclick="openGifts()">🎁 &nbsp; UNLOCK YOUR GIFTS</button><br/><br/>
+  <button class="backbtn" onclick="goTo('page1')">← BACK</button>
+</div>
+
+<!-- ════ PAGE 3 ════ -->
+<div id="page3" class="page">
+  <div class="ghead">
+    <h2>🦇 YOUR 26 BIRTHDAY GIFTS</h2>
+    <p>TAP ANY GIFT → SEE DETAILS → ANSWER CHALLENGE → FIND IT! 🎯</p>
+    <br/>
+    <button class="backbtn" onclick="goTo('page2')" style="margin:0 auto;display:inline-flex;">← BACK TO WISHES</button>
+  </div>
+  <p class="progress-label" id="progressLabel">0 / 26 OPENED</p>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="gift-grid" id="giftGrid"></div>
+</div>
+
+<!--
+  FLOW FOR EVERY GIFT:
+  STEP 1 → Info popup  : icon + name + wish/detail + "Accept Challenge" button
+  STEP 2 → Quiz popup  : related question + 4 options
+  STEP 3 → Reveal popup: "Find it here" location
+
+  LOCKED (special) gifts: Step 1 shows ⭐ SPECIAL badge, same flow.
+  Already-opened gifts  : skip to Step 3 directly.
+-->
+
+<!-- STEP 1 — Gift Info / Accept Challenge -->
+<div class="modal-overlay" id="infoModal">
+  <div class="modal" id="infoInner" style="text-align:center">
+    <button class="modal-close" onclick="closeModal('infoModal')">✕</button>
+  </div>
+</div>
+
+<!-- STEP 2 — Quiz -->
+<div class="modal-overlay" id="quizModal">
+  <div class="modal" style="text-align:center">
+    <button class="modal-close" onclick="closeModal('quizModal')">✕</button>
+    <span class="q-gift-icon" id="qGiftIcon">🎁</span>
+    <p class="q-title" id="qTitle">🎯 CHALLENGE</p>
+    <p class="q-question" id="qQuestion"></p>
+    <div class="q-options" id="qOptions"></div>
+    <p class="q-feedback" id="qFeedback"></p>
+    <button class="lock-unlock-btn" id="qNextBtn" style="display:none" onclick="afterQuiz()">🎁 REVEAL &amp; FIND IT!</button>
+  </div>
+</div>
+
+<!-- STEP 3 — Location Reveal -->
+<div class="modal-overlay" id="revealModal">
+  <div class="modal" id="revealInner" style="text-align:center">
+    <button class="modal-close" onclick="closeModal('revealModal')">✕</button>
+  </div>
+</div>
+
+<script>
+/* ── particles ── */
+const pEl=document.getElementById('particles');
+for(let i=0;i<38;i++){const r=document.createElement('div');r.className='raindrop';r.style.cssText=`left:${Math.random()*100}%;height:${28+Math.random()*70}px;--d:${1.8+Math.random()*3}s;--dl:${-Math.random()*5}s;`;pEl.appendChild(r);}
+const sparks=['✦','◆','·','✧','○'];
+for(let i=0;i<30;i++){const s=document.createElement('div');s.className='spark';s.textContent=sparks[Math.floor(Math.random()*sparks.length)];s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--fs:${5+Math.random()*7}px;--d:${3+Math.random()*6}s;--dl:${-Math.random()*10}s;`;pEl.appendChild(s);}
+
+/* ── nav ── */
+function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function openWishes(){goTo('page2');launchConfetti();}
+function openGifts(){goTo('page3');buildGrid();}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
+
+/* ── confetti ── */
+function launchConfetti(){
+  const w=document.getElementById('confettiWrap');w.innerHTML='';
+  const cols=['#00d4ff','#7eeeff','#ffffff','#005f7a','#b2f0ff','#00a8cc','#e0f7ff'];
+  for(let i=0;i<120;i++){const c=document.createElement('div');c.className='confetto';c.style.cssText=`left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${2+Math.random()*3.5}s;animation-delay:${Math.random()*1.8}s;width:${4+Math.random()*7}px;height:${4+Math.random()*7}px;transform:rotate(${Math.random()*360}deg);border-radius:${Math.random()>.5?'50%':'1px'};`;w.appendChild(c);}
+}
+
+/* ══════════════════════════════════════
+   GIFTS DATA
+   Each gift has:
+     icon, name, wish (personal detail shown in Step 1),
+     loc  (location shown in Step 3),
+     q    (quiz: question, opts[], correct index, funFact)
+   LOCKED gifts (indices 2,6,14,23) show ⭐ SPECIAL badge in Step 1.
+══════════════════════════════════════ */
+const LOCKED=[2,6,14,23];
+
+const gifts=[
+  /* 0 - Cake */ {icon:'🎂',name:'Birthday Cake',
+    wish:'Something sweet, something special — made just to celebrate YOU today! 🎂',
+    loc:'🍽️ On the dining area — fresh and waiting!',
+    hint:'What\'s your all-time favourite cake flavour, Hari? The one you\'d eat the whole thing alone 😂',
+    opts:['Chocolate 🍫','Vanilla 🍦','Strawberry ❤️','Black Forest 🍒'],
+    fbs:['Chocolate guy! Bold, rich and intense — just like you 😎','Vanilla! Classic, clean and always reliable — very Hari 😄','Strawberry! Sweet with a little tang — we see you 😏','Black Forest! Layers of flavour — you love complexity don\'t you 😂']},
+
+  /* 1 - Chocolate */ {icon:'🎁',name:'Chocolate Box',
+    wish:'A little sweetness to match how sweet you\'ve made everyone\'s life! 🍫',
+    loc:'❄️ Dining area rack — find the gift and taste it! 😄🎁',
+    hint:'Okay Hari — dark, milk, or white? Your chocolate personality says a lot 😏',
+    opts:['Dark 🖤','Milk 🤎','White 🤍','All of them, no shame 😂'],
+    fbs:['Dark chocolate! Intense, deep and a little mysterious — that\'s you 😎','Milk chocolate! Warm, sweet and everyone loves you — makes sense 😄','White chocolate! Unique choice — you always go your own way 😂','All of them?! Zero shame, maximum enjoyment — we respect it 😂']},
+
+  /* 2 - SPECIAL: Letter */ {icon:'🌟',name:'Special Letter',special:true,
+    sentence:'Something that carries every feeling words could barely hold. Written by hand, sealed with heart — meant only for your eyes. 🥹',
+    sq:{
+      question:'When someone you love writes you a heartfelt message, what do you do?',
+      opts:['Read it once and smile 😊','Read it many times and keep it forever 💙','Get emotional and pretend I didn\'t 😂','Screenshot it and look at it on bad days'],
+      correct:1,
+      wait:'💌 Your letter is on its way — written with love, sealed with everything unsaid.\n\n"Some feelings are too big for conversation.\nSo we wrote them down —\njust for you, just this once."\n\n🌙 Wait for it, Hari. Some things arrive right on time. 🥹✨'
+    },
+    wish:'',loc:'',hint:''},
+
+  /* 3 - Watch */ {icon:'⏳',name:'Smart Watch',
+    wish:'Every second of your 25th year deserves to be counted — wear it proud! ⌚',
+    loc:'Go to the courier office and pick it up… your gift is on the way! 🎁😄',
+    hint:'Hari, you\'re always either early or fashionably late 😂 Which one are you really?',
+    opts:['Always early ⏰','Right on time 👌','Fashionably late 😎','What is time? 😂'],
+    fbs:['Always early?! Hari we don\'t believe you but okay 😂 Respect!','Right on time — the composed, reliable king. Very you 😎','Fashionably late! You make an entrance and you know it 😂','What is time — the most Hari answer possible 😂 Iconic!']},
+
+  /* 4 - Dress */ {icon:'👕',name:'Dress / Outfit',
+    wish:'New year, new fit — go turn some heads and own the room! 💃',
+    loc:'📦 Go with her to the shop and buy something you like.',
+    hint:'If you had to describe your fashion style in one word Hari, what would it be? 😂',
+    opts:['Casual 😌','Streetwear 🧢','Smart & clean 👔','Whatever\'s clean 😂'],
+    fbs:['Casual! Comfortable, relaxed, zero effort — maximum vibe 😌','Streetwear! Fresh fits and drip energy — we see you 🧢','Smart & clean! Sharp, polished, always put together 👔 That\'s Hari!','Whatever\'s clean 😂 The most honest answer in this entire game!']},
+
+  /* 5 - Toy Car */ {icon:'🏎️',name:'Toy Car',
+    wish:'Speed, style, and a little childhood magic — some things never get old! 🚗',
+    loc:'🗄️ Your workplace… check inside the table.',
+    hint:'Hari be honest 😂 If you could drive ANY car right now, which would it be?',
+    opts:['Lamborghini 🐂','BMW M Series 🔵','Mercedes G-Wagon 🖤','Royal Enfield always 🏍️'],
+    fbs:['Lamborghini! You want speed, noise and all the attention 😂 Go off!','BMW M Series! Refined power with class — very you Hari 😎','Mercedes G-Wagon! Luxury beast mode activated 🖤 Top tier choice!','Royal Enfield! You\'d choose the bike over any car — that\'s loyalty 😂🏍️']},
+
+  /* 6 - SPECIAL: Wallet */ {icon:'💫',name:'Premium Wallet',special:true,
+    sentence:'Something you\'ll carry every single day — that holds more than just money. It holds who you are, what you\'ve earned, and everyone who believes in you. 💛',
+    sq:{
+      question:'If you found ₹10,000 you forgot about, what\'s the FIRST thing you\'d do?',
+      opts:['Spend it on food immediately 🍔','Save it quietly 💰','Treat everyone around you 🎉','Invest it and forget again 📈'],
+      correct:2,
+      wait:'💛 This gift is being kept safe for you — just like you keep everyone else safe.\n\n"Carry people in your heart the way they carry you in theirs —\nfully, faithfully, without conditions."\n\n🌟 It\'s coming to you, Hari. Worth every second of the wait. 💛✨'
+    },
+    wish:'',loc:'',hint:''},
+
+  /* 7 - Sunscreen */ {icon:'☀️',name:'Sunscreen',
+    wish:'Protect that glow — your skin deserves the same care you give everyone else! ✨',
+    loc:'🛁 Go outside and find the Jupiter Scooty 2324. Check the scooty dicky — your gift is there! 🎁',
+    hint:'Hari — beach day or stay indoors day? What\'s your vibe? 😂',
+    opts:['Beach all day ☀️','Mountains 🏔️','Cozy indoors 🛋️','Wherever the food is 😂'],
+    fbs:['Beach all day! Sun, sand and good vibes — classic summer Hari ☀️','Mountains! Fresh air, cool breeze and the open view — solid choice 🏔️','Cozy indoors! AC on, phone in hand, zero regrets 🛋️ We knew it!','Wherever the food is 😂 Best answer. Always. No further questions!']},
+
+  /* 8 - Key Chain */ {icon:'🗝️',name:'Custom Key Chain',
+    wish:'A little piece of us on your keys — so we\'re always with you wherever you go. 🔑',
+    loc:'🚪 Check your bike cover',
+    hint:'If you had zero plans today, first place you\'d go — honestly? 😏',
+    opts:['Food place immediately 🍔','Ride somewhere random 🏍️','Friend\'s house 😄','Gym first, always 💪'],
+    fbs:['Food place immediately 😂 Before anything else — stomach first, life second. Very Hari!','Ride somewhere random 🏍️ No plan, no destination, just the road. Pure freedom!','Friend\'s house 😄 Good company, good vibes — you never like being alone 😄','Gym first 💪 The discipline is real! Even on a free day, you\'re grinding!']},
+
+  /* 9 - Bluetooth Speaker */ {icon:'🎵',name:'Bluetooth Speaker',
+    wish:'Turn it up — your vibe deserves the best soundtrack! 🔊',
+    loc:'🎶 Your pedestal is hiding something for you… go find it! 😄',
+    hint:'What kind of music is Hari running on these days? 😂',
+    opts:['Tamil beats all day 🎶','English vibes only 🎧','Gym playlist on repeat 💪','Silence is the real music 😌'],
+    fbs:['Tamil beats all day 🎶 Nothing hits harder — culture and feel in every song!','English vibes only 🎧 International taste, global energy — very cool Hari!','Gym playlist 💪 Every song is a PR waiting to happen — beast mode always!','Silence 😌 The most underrated, most peaceful answer. Respect!']},
+
+  /* 10 - Perfume */ {icon:'🌸',name:'Perfume',
+    wish:'Smell unforgettable — because that\'s exactly what you are. 🌸',
+    loc:'🪞 Check her bag… find something fresh you might like! 🌸',
+    hint:'Fresh, woody, sweet or musky — what\'s Hari\'s signature vibe? 😏',
+    opts:['Fresh & clean 🌊','Woody & deep 🌳','Sweet & warm 🍯','Musky & bold 🖤'],
+    fbs:['Fresh & clean 🌊 Light, confident and always crisp — people notice when you walk in!','Woody & deep 🌳 Rich, grounded and unforgettable — that\'s a whole personality right there!','Sweet & warm 🍯 Inviting and comforting — everyone wants to be around you!','Musky & bold 🖤 Dark, powerful, commanding. You own every room you enter!']},
+
+  /* 11 - Moisturizer */ {icon:'🧴',name:'Moisturizer',
+    wish:'Stay soft, stay fresh — your skin deserves the best care always! 💧',
+    loc:'🪴 Go outside and find the Jupiter Scooty 2324. Check the scooty dicky — your gift is there! 🎁',
+    hint:'How seriously do you actually take your skincare, Hari? Be honest 😂',
+    opts:['I have a full routine 💅','Just soap and water 😂','Whatever\'s in the bathroom','Skincare? Who? 😂'],
+    fbs:['Full routine! Cleanser, toner, moisturizer, SPF — the works 💅 King behaviour!','Soap and water 😂 Simple, fast, gets the job done. Classic Hari efficiency!','Whatever\'s in the bathroom 😂 Grab, apply, done. No time to waste!','Skincare? Who? 😂 That\'s exactly why this gift is here Hari — we\'re helping you!']},
+
+  /* 12 - Light Bottle */ {icon:'✨',name:'LED Light Bottle',
+    wish:'Let your light shine bright — in every room and every heart! 💡',
+    loc:'🛏️ Check your teammate\'s bag 🍾✨',
+    hint:'Night owl or early bird, Hari? What\'s your honest sleep schedule? 😂',
+    opts:['Asleep by 10 😇','Up till midnight 🌙','2AM is normal 😂','Sleep is optional 💀'],
+    fbs:['Asleep by 10 😇 We don\'t believe you but okay — healthy king behaviour!','Up till midnight 🌙 The classic late night session — productive or just scrolling? 😂','2AM is normal 😂 Your best ideas come at 2AM and we all know it Hari!','Sleep is optional 💀 Running on coffee and willpower — absolute legend energy!']},
+
+  /* 13 - Smiley Ball */ {icon:'😊',name:'Smiley Ball',
+    wish:'Squeeze it, smile at it — because you deserve more smiles this year! 😄',
+    loc:'🪑 Elevate Meeting Room… check the table. Time to squeeze the stress!',
+    hint:'What\'s the ONE thing that instantly makes Hari smile no matter what? 😊',
+    opts:['Good food 🍔','A funny reel 😂','Someone checking in 💙','Bike ride, no destination 🏍️'],
+    fbs:['Good food 🍔 One bite and the whole mood changes — food is life for Hari!','A funny reel 😂 Laughing alone at your phone at 1AM — we see you Hari!','Someone checking in 💙 That little message that says "you okay?" — it means everything!','Bike ride, no destination 🏍️ Just you, the road and the wind — pure happiness!']},
+
+  /* 14 - SPECIAL: Couple Idol */ {icon:'🌙',name:'Black Couple Idol',special:true,
+    sentence:'Something that stands still and says nothing — yet speaks louder than any gift ever could. A symbol of two people who chose each other, again and again. 💑',
+    sq:{
+      question:'What do you think is the real secret to a relationship that lasts forever?',
+      opts:['Never argue 😇','Choose each other every single day 💙','Have all the same interests','Always keep the spark alive 🔥'],
+      correct:1,
+      wait:'💑 This gift is traveling toward you — like every good thing in life, right on time.\n\n"Real love is not the absence of hard days.\nIt is the choice to stay, to speak, to grow —\neven on the hardest ones."\n\n🧑\u200d🤝\u200d🧑 Wait for it, Hari. A symbol of something that lasts. 💙✨'
+    },
+    wish:'',loc:'',hint:''},
+
+  /* 15 - Currency */ {icon:'🏆',name:'Cash Gift',
+    wish:'Spend it on something that makes you genuinely smile — you\'ve earned every bit! 💰',
+    loc:'❄️ Don\'t forget to check your bag! 💸',
+    hint:'If someone handed you money right now with zero rules — what\'s the FIRST thing? 😂',
+    opts:['Eat out, big meal 🍔','Save every rupee 💰','Plan a trip ✈️','Buy something I\'ve been eyeing 🛍️'],
+    fbs:['Eat out immediately 🍔 Big meal, full stomach, happy Hari — the only logical move!','Save every rupee 💰 Disciplined, smart and future-focused. Respect!','Plan a trip ✈️ Life is short and the world is wide — good thinking Hari!','Buy that thing you\'ve been eyeing 🛍️ You\'ve been patient long enough — treat yourself!']},
+
+  /* 16 - Moon Light Lamp */ {icon:'🔮',name:'Moon Night Lamp',
+    wish:'May your nights always glow as warm and peaceful as this little moon. 🌙',
+    loc:'🌙 Your pedestal knows the secret… go check!',
+    hint:'What does Hari\'s perfect night look like? 🌙',
+    opts:['Movies and chill 🎬','Long ride, cool breeze 🏍️','Gaming till 3AM 🎮','Deep talk with someone 💙'],
+    fbs:['Movies and chill 🎬 Good film, snacks, zero interruptions — perfect night!','Long ride, cool breeze 🏍️ Open road, cool air, your thoughts — that\'s freedom right there!','Gaming till 3AM 🎮 Headset on, world off — in the zone and unstoppable!','Deep talk with someone 💙 The kind of conversation that goes till sunrise — those are rare and precious!']},
+
+  /* 17 - Food */ {icon:'🍛',name:'Food Hamper',
+    wish:'Packed with flavour — just like the man himself! Dig in! 😋',
+    loc:'🍳 Kitchen counter — ready to eat!',
+    hint:'For your birthday gift, which food do you want? 😄',
+    opts:['Biryani 🍗','Pasta 🍝','Snacks 🍟','Drinks 🥤'],
+    fbs:['Biryani 🍗 The king of all meals — perfect choice, zero regrets! Ask her to cook for you 😂','Pasta 🍝 Fancy taste, international vibes — Hari going gourmet today! Ask her to make it 😄','Snacks 🍟 Munch mode activated — the gift that keeps on giving! Ask her to stock it up 😂','Drinks 🥤 Hydration and celebration — the birthday fuel! Ask her to pour it for you 😄']},
+
+  /* 18 - Water Bottle */ {icon:'🌊',name:'Insulated Water Bottle',
+    wish:'Stay hydrated, stay sharp — your engine runs best on water! 💧',
+    loc:'💌 Where you drink the water… at the straight table',
+    hint:'Be brutally honest Hari 😂 How many glasses of water do you actually drink per day?',
+    opts:['Less than 2 💀','Around 4 glasses 😅','A solid 6-8 💧','I lost count 😂'],
+    fbs:['Less than 2 💀 Hari!! That\'s why we got you this bottle — no more excuses now!','Around 4 glasses 😅 Getting there, but we know you can do better! The bottle will help 😄','A solid 6-8 💧 Hydration king! Healthy, sharp and consistent — we love it!','Lost count 😂 Either really good or really bad — we\'re going with bad 😂 Here\'s your bottle!']},
+
+  /* 19 - Memory Stone */ {icon:'🪐',name:'Memory Stone',
+    wish:'A piece of us, always in your hands — some bonds simply don\'t break. 💙',
+    loc:'🎉 Your gift is on the way… the wait will be worth it! 💙',
+    hint:'If you could freeze ONE memory from this past year forever — what kind would it be? 🥹',
+    opts:['A big laugh with friends 😂','A quiet peaceful moment 🌙','An achievement I\'m proud of 🏆','A moment I felt truly loved 💙'],
+    fbs:['A big laugh with friends 😂 The kind where your stomach hurts — those are irreplaceable Hari!','A quiet peaceful moment 🌙 Still, simple and pure — those rare moments mean everything!','An achievement you\'re proud of 🏆 You worked hard and it paid off — carry that feeling always!','A moment you felt truly loved 💙 That warmth, that knowing — it\'s what life is really about 🥹']},
+
+  /* 20 - Protein Mix */ {icon:'🥤',name:'Protein Supplement',
+    wish:'Feed the beast — every rep, every set, every scoop gets you closer! 💪',
+    loc:'🛏️ Look near the nearby girl\'s bag… maybe your gift is there! 🎁',
+    hint:'Real talk Hari 😂 Do you actually skip leg day or not?',
+    opts:['Never skip, I\'m built different 💪','Occasionally... 😅','Leg day is optional 😂','What\'s leg day? 💀'],
+    fbs:['Never skip! Iron discipline, zero excuses 💪 That\'s the mindset of a champion Hari!','Occasionally... 😅 We knew it 😂 It\'s okay, the guilt makes you go twice as hard next time!','Leg day is optional 😂 Upper body king but the legs are crying Hari — go do squats!','What\'s leg day?! 💀 Sir. SIR. The protein is here to help — please use it on ALL muscle groups 😂']},
+
+  /* 21 - Gym Items */ {icon:'🏋️',name:'Gym Kit',
+    wish:'New gear, new energy — go lift something heavy and be unstoppable! 🏋️',
+    loc:'🏠 Go to the gym and claim your gift! 🏋️‍♂️💪',
+    hint:'What gets Hari out of bed to hit the gym on the laziest day? 😂',
+    opts:['My own discipline 💪','Guilt of skipping 😅','Someone to go with 🤝','Looking at my gains mirror 😂'],
+    fbs:['Pure discipline 💪 No alarm, no motivation needed — just gets up and does it. Champion!','Guilt of skipping 😅 The imaginary Hari in the mirror judging you 😂 It works though!','Someone to go with 🤝 Better together — gym partners make the grind fun and consistent!','Looking at your gains mirror 😂 The progress pic that says "do not stop" — iconic motivation!']},
+
+  /* 22 - Kinder Joy */ {icon:'🍫',name:'Kinder Joy',
+    wish:'Never too old for a little joy and a surprise inside — enjoy every bit! 🍬',
+    loc:'🪞 Quick! Check your bag! 🎒👀',
+    hint:'What toy did you absolutely love as a kid Hari? 😂 No judgment!',
+    opts:['Hot Wheels cars 🚗','Cricket bat & ball 🏏','Video games 🎮','Action figures 🦸'],
+    fbs:['Hot Wheels cars 🚗 The speed obsession started young 😂 Nothing has changed Hari!','Cricket bat & ball 🏏 Born on the pitch — future star who took a different route 😄','Video games 🎮 The controller was your first love and it shows 😂 We see you!','Action figures 🦸 Hero energy from day one — you were always meant to be extraordinary!']},
+
+  /* 23 - SPECIAL: Photos */ {icon:'🎴',name:'Special Photo Gift',special:true,
+    sentence:'Something that freezes time. A collection of moments that prove you were loved, celebrated, and surrounded by people who showed up for you — always. 📸',
+    sq:{
+      question:'Which kind of memory hits hardest when you look back?',
+      opts:['A funny moment that made everyone cry laughing 😂','A quiet moment with someone you love 💙','A big celebration with everyone together 🎉','A solo win you worked really hard for 🏆'],
+      correct:1,
+      wait:'📸 Your photos are being carefully put together — each one chosen with love.\n\n"A photo doesn\'t just capture a moment.\nIt captures the feeling, the people,\nand the version of you that existed\nin that one perfect second."\n\n🌙 Coming to you soon, Hari. Worth every second of the wait. 🥹✨'
+    },
+    wish:'',loc:'',hint:''},
+
+  /* 24 - Coffee Mug */ {icon:'☕',name:'Coffee Mug',
+    wish:'Every sip from this mug is a reminder — you are fuelled, focused and unstoppable! ☕',
+    loc:'🗂️ Search the pantry cupboard. 🔍',
+    hint:'Hari, what\'s your coffee order? The one you NEED to function like a human being 😂',
+    opts:['Black coffee, no sugar ☕','Cappuccino with extra foam 🫧','Cold coffee, always 🧊','Filter coffee, the OG 🏺'],
+    fbs:['Black coffee no sugar! Intense, no nonsense, pure focus — that\'s peak Hari energy 😎','Cappuccino with foam! You like the finer things in life — classy and delicious 😄','Cold coffee always! Chill vibes, cool head, never overheated 🧊 Very you!','Filter coffee the OG! Traditional, strong and timeless — just like you Hari 🏺😂']},
+
+  /* 25 - Birthday Notes */ {icon:'💛',name:'Birthday Notes',
+    wish:'This one can\'t be wrapped. It\'s the people who showed up, again and again. ❤️',
+    loc:'💝 It\'s US — your people who love you most ❤️',
+    hint:'Last one Hari 🥹 What\'s the one feeling you want more of in your 25th year?',
+    opts:['Peace 🌙','Adventure 🏍️','Love & connection 💙','All of the above 💛'],
+    fbs:['Peace 🌙 A calm mind, a quiet heart — may every day bring you more of it this year!','Adventure 🏍️ New roads, new stories, new memories — may this year be your wildest yet!','Love & connection 💙 The people, the moments, the warmth — may you never feel alone!','All of the above 💛 Because you deserve every single one of them. Happy Birthday Batman ❤️🎂']},
+];
+
+const openedGifts=new Set();
+let currentIdx=-1;
+
+/* ── Build Gift Grid ── */
+function buildGrid(){
+  const grid=document.getElementById('giftGrid');
+  if(grid.innerHTML!=='')return;
+  gifts.forEach((g,i)=>{
+    const isSpec=g.special===true;
+    const box=document.createElement('div');
+    box.className='gift-box'+(isSpec?' locked special':'');
+    box.id=`gb${i}`;box.style.setProperty('--gi',i);
+    box.innerHTML=`${isSpec?'<span class="lock-icon">⭐</span>':''}
+      <span class="gift-emoji">${g.icon}</span>
+      <span class="gift-num-badge">GIFT ${String(i+1).padStart(2,'0')}</span>`;
+    box.onclick=()=>handleGiftClick(i);
+    grid.appendChild(box);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   GIFT CLICK — routes to NORMAL or SPECIAL flow
+════════════════════════════════════════════════ */
+function handleGiftClick(i){
+  if(openedGifts.has(i)){ showReveal(i); return; }
+  currentIdx=i;
+  const g=gifts[i];
+
+  if(g.special){
+    /* ── SPECIAL FLOW: Step 1 — mystery sentence + bat logo, no gift name ── */
+    document.getElementById('infoInner').innerHTML=`
+      <button class="modal-close" onclick="closeModal('infoModal')">✕</button>
+      <div class="spec-aura"></div>
+      <p class="spec-tag" style="margin-bottom:12px">⭐ &nbsp; SPECIAL GIFT ${i+1} &nbsp; ⭐</p>
+      <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" style="width:70px;height:auto;margin:0 auto 14px;display:block;filter:drop-shadow(0 0 4px rgba(0,212,255,.5));animation:batpulse 3s ease-in-out infinite">
+        <path fill="#00d4ff" d="M100 20 C100 20 90 10 70 14 C50 18 38 10 20 18 C10 22 4 32 8 40 C12 36 22 34 28 38 C18 42 12 52 16 62 C22 56 34 52 42 56 C50 60 56 70 56 70 L72 58 C80 66 88 72 100 72 C112 72 120 66 128 58 L144 70 C144 70 150 60 158 56 C166 52 178 56 184 62 C188 52 182 42 172 38 C178 34 188 36 192 40 C196 32 190 22 180 18 C162 10 150 18 130 14 C110 10 100 20 100 20Z"/>
+      </svg>
+      <div class="gr-divider" style="margin-bottom:16px"></div>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:1.08rem;font-weight:600;color:rgba(232,244,255,.88);line-height:1.75;margin-bottom:22px;padding:0 8px;font-style:italic">"${g.sentence}"</p>
+      <button class="lock-unlock-btn" onclick="startSpecialChallenge()">💙 &nbsp; ACCEPT THE CHALLENGE</button>
+    `;
+  } else {
+    /* ── NORMAL FLOW: Step 1 — icon + hint clue, no gift name ── */
+    document.getElementById('infoInner').innerHTML=`
+      <button class="modal-close" onclick="closeModal('infoModal')">✕</button>
+      <p class="gr-tag" style="margin-bottom:8px">GIFT ${String(i+1).padStart(2,'0')} OF 26</p>
+      <span style="font-size:5rem;display:block;margin-bottom:10px;animation:fi 3s ease-in-out infinite">${g.icon}</span>
+      <div class="gr-divider" style="margin-bottom:14px"></div>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:600;color:rgba(232,244,255,.85);line-height:1.7;margin-bottom:6px;padding:0 6px;font-style:italic">"${g.wish}"</p>
+      <p style="font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:3px;color:var(--muted);margin-bottom:22px">— READ THE CLUE & GUESS WHAT IT IS —</p>
+      <button class="lock-unlock-btn" onclick="startNormalChallenge()">🎯 &nbsp; ACCEPT THE CHALLENGE</button>
+    `;
+  }
+  document.getElementById('infoModal').classList.add('active');
+}
+
+/* ════════════════════════════
+   NORMAL FLOW — Step 2: Personal question with topic-related options
+════════════════════════════ */
+function startNormalChallenge(){
+  closeModal('infoModal');
+  const i=currentIdx; const g=gifts[i];
+
+  document.getElementById('qGiftIcon').textContent=g.icon;
+  document.getElementById('qTitle').textContent=`GIFT ${String(i+1).padStart(2,'0')} — YOUR ANSWER?`;
+  document.getElementById('qQuestion').textContent=g.hint;
+  document.getElementById('qFeedback').textContent='';
+  document.getElementById('qNextBtn').style.display='none';
+  document.getElementById('qNextBtn').textContent='📍 FIND YOUR GIFT!';
+  document.getElementById('qNextBtn').onclick=afterNormalQuiz;
+
+  const optsEl=document.getElementById('qOptions');optsEl.innerHTML='';
+  g.opts.forEach((opt,oi)=>{
+    const btn=document.createElement('button');btn.className='q-opt';btn.textContent=opt;
+    btn.onclick=()=>answerNormal(oi,g.fbs||g.fb);
+    optsEl.appendChild(btn);
+  });
+  document.getElementById('quizModal').classList.add('active');
+}
+
+function answerNormal(chosen,fbs){
+  document.querySelectorAll('.q-opt').forEach((b,i)=>{
+    b.disabled=true;
+  });
+  document.querySelectorAll('.q-opt')[chosen].classList.add('correct');
+  const fbEl=document.getElementById('qFeedback');
+  fbEl.innerHTML='😄 '+(Array.isArray(fbs)?fbs[chosen]:fbs);
+  fbEl.style.color='#00d4ff';
+  launchConfetti();
+  document.getElementById('qNextBtn').style.display='flex';
+}
+
+function afterNormalQuiz(){ closeModal('quizModal'); showReveal(currentIdx); }
+
+/* ════════════════════════════
+   SPECIAL FLOW — Step 2: Relationship question
+════════════════════════════ */
+function startSpecialChallenge(){
+  closeModal('infoModal');
+  const i=currentIdx; const g=gifts[i]; const sq=g.sq;
+
+  document.getElementById('qGiftIcon').textContent=g.icon;
+  document.getElementById('qTitle').textContent='💙 SPECIAL QUESTION FOR YOU';
+  document.getElementById('qQuestion').textContent=sq.question;
+  document.getElementById('qFeedback').textContent='';
+  document.getElementById('qNextBtn').style.display='none';
+  document.getElementById('qNextBtn').textContent='💌 SEE YOUR SPECIAL MESSAGE';
+  document.getElementById('qNextBtn').onclick=afterSpecialQuiz;
+
+  const optsEl=document.getElementById('qOptions');optsEl.innerHTML='';
+  sq.opts.forEach((opt,oi)=>{
+    const btn=document.createElement('button');btn.className='q-opt';btn.textContent=opt;
+    btn.onclick=()=>answerSpecial(oi,sq.correct,sq.wait);
+    optsEl.appendChild(btn);
+  });
+  document.getElementById('quizModal').classList.add('active');
+}
+
+function answerSpecial(chosen,correct,wait){
+  document.querySelectorAll('.q-opt').forEach((b,i)=>{
+    b.disabled=true;
+    if(i===correct)b.classList.add('correct');
+  });
+  document.querySelectorAll('.q-opt')[chosen].classList.add(chosen===correct?'correct':'wrong');
+  const fb=document.getElementById('qFeedback');
+  fb.innerHTML= chosen===correct
+    ? '💙 That\'s the heart of it. You truly understand what matters.'
+    : '💙 There\'s no wrong answer here — love is always learning.';
+  fb.style.color='#00d4ff';
+  document.getElementById('qNextBtn').style.display='flex';
+}
+
+function afterSpecialQuiz(){
+  closeModal('quizModal');
+  buildSpecialWait(currentIdx);
+  document.getElementById('revealModal').classList.add('active');
+  markOpened(currentIdx);
+}
+
+function buildSpecialWait(i){
+  const g=gifts[i];
+  const inner=document.getElementById('revealInner');
+  inner.innerHTML=
+    '<button class="modal-close" onclick="closeModal(&quot;revealModal&quot;)">✕</button>'+
+    '<div class="spec-aura"></div>'+
+    '<p class="spec-tag" style="margin-bottom:12px">⭐ SPECIAL GIFT '+(i+1)+' ⭐</p>'+
+    '<svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" style="width:65px;height:auto;margin:0 auto 10px;display:block;filter:drop-shadow(0 0 5px rgba(0,212,255,.55));animation:batpulse 3s ease-in-out infinite">'+
+    '<path fill="#00d4ff" d="M100 20 C100 20 90 10 70 14 C50 18 38 10 20 18 C10 22 4 32 8 40 C12 36 22 34 28 38 C18 42 12 52 16 62 C22 56 34 52 42 56 C50 60 56 70 56 70 L72 58 C80 66 88 72 100 72 C112 72 120 66 128 58 L144 70 C144 70 150 60 158 56 C166 52 178 56 184 62 C188 52 182 42 172 38 C178 34 188 36 192 40 C196 32 190 22 180 18 C162 10 150 18 130 14 C110 10 100 20 100 20Z"/>'+
+    '</svg>'+
+    '<div class="gr-divider" style="margin:10px auto 16px"></div>'+
+    '<p id="waitMsg" style="font-family:Rajdhani,sans-serif;font-size:1rem;font-weight:600;color:rgba(232,244,255,.88);line-height:1.85;white-space:pre-line;padding:0 6px;text-align:center"></p>';
+  document.getElementById('waitMsg').textContent=g.sq.wait.split('\\n').join('\n');
+}
+
+/* ════════════════════════
+   NORMAL — Step 3: Location
+════════════════════════ */
+function showReveal(i){
+  const g=gifts[i];
+  if(g.special){
+    buildSpecialWait(i);
+    document.getElementById('revealModal').classList.add('active');
+    return;
+  }
+  document.getElementById('revealInner').innerHTML=`
+    <button class="modal-close" onclick="closeModal('revealModal')">✕</button>
+    <p class="gr-tag" style="margin-bottom:10px">GIFT ${String(i+1).padStart(2,'0')} OF 26</p>
+    <span style="font-size:4.5rem;display:block;margin-bottom:10px;animation:fi 3s ease-in-out infinite">${g.icon}</span>
+    <p style="font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:3px;color:var(--muted);margin-bottom:6px">— YOUR GIFT IS WAITING —</p>
+    <p style="font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:600;color:rgba(232,244,255,.75);font-style:italic;margin-bottom:18px;padding:0 6px">"${g.wish}"</p>
+    <div class="gr-divider"></div>
+    <p class="gr-loc-lbl">📍 GO FIND IT HERE</p>
+    <div class="gr-loc">${g.loc}</div>
+  `;
+  document.getElementById('revealModal').classList.add('active');
+  markOpened(i);
+}
+
+function markOpened(i){
+  openedGifts.add(i);
+  const box=document.getElementById(`gb${i}`);
+  if(box){
+    box.classList.add('opened');box.classList.remove('locked','special');
+    box.innerHTML=`<span class="opened-check">✅</span><span class="gift-emoji" style="filter:brightness(.42)">${gifts[i].icon}</span><span class="gift-num-badge">OPENED</span>`;
+    box.onclick=()=>showReveal(i);
+  }
+  updateProgress();
+}
+
+function updateProgress(){
+  const pct=Math.round((openedGifts.size/26)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent=`${openedGifts.size} / 26 OPENED`;
+}
+</script>
+</body>
+</html>
